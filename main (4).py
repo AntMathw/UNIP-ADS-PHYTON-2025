@@ -1,3 +1,4 @@
+# Código utilizando função if para saber se o valor e positivo, negativo ou igual a zero
 num1 = int (input("Digite um valor"));
 if num1 > 0:
     print("O numero e positivo")
