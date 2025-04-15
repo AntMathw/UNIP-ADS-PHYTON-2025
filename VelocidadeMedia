@@ -1,0 +1,14 @@
+import sys
+
+def calculaVelocidadeMedia(distancia, tempo):
+    return distancia / tempo
+    
+
+def main():
+    d = float(input("Informe a distancia para chegar no seu destino: "))
+    t = int(input("Informe quantas horas você tem para chegar: "))
+    velocidadeMedia = calculaVelocidadeMedia(d, t)
+    print(f"A velocidade média para chegar no destino é {velocidadeMedia} Km por hora.")
+
+if __name__=="__main__":
+    main()
