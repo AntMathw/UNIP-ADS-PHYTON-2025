@@ -26,3 +26,13 @@ def main():
     
 if __name__=="__main__":
     main()
+
+#Saber se um numero e positivo, negativo ou igual a 0
+n = int(input('Digite o primeiro valor'));
+
+if n > 0:
+    print('O valor e positivo')
+if n < 0:
+    print('O valor e negativo')
+if n == 0:
+    print('O valor é igual a zero')
