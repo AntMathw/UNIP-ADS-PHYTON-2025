@@ -25,7 +25,7 @@ def main():
     print(f'A velocidade média {velocidademedia} é: ')
     
 if __name__=="__main__":
-    #main()
+    main()
     
 #Saber se um numero e positivo, negativo ou igual a 0
 n = int(input('Digite o primeiro valor'));
