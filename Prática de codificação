@@ -36,3 +36,60 @@ if n < 0:
     print('O valor e negativo')
 if n == 0:
     print('O valor é igual a zero')
+
+#Numero antecessor e sucessor
+n = int(input('Digite um valor'))
+num1 = n - 1
+num2 = n + 1
+print('Analisando o numero {}, o seu antecessor é {}, o seu sucessor é {}'.format(n, num1, num2))
+
+#Numero antecessor e sucessor 2.0
+n = int(input('Digite um valor'))
+print('Analisando o numero {}, o seu antecessor é {}, o seu sucessor é {}'.format(n, (n-1), (n+1)))
+
+#Dobro Triplo e Raiz Quadrada
+n = float(input('Digite um valor'))
+print('\nO dobro do numéro é {} , \nseu triplo é {} \ne a raiz quadrada é {}'.format((n * 2), (n * 3), (n ** (1/2))))
+
+#Dobro Triplo e Raiz Quadrada 2.0
+n = float(input('Digite um valor'))
+num1 = n * 2 
+num2 = n * 3
+num3 = n ** (1/2)
+print('O dobro do número {}'.format(num1))
+print('O triplo do número {}'.format(num2))
+print('A raiz quadrada é {}'.format(num3))
+
+#Média aritmética
+
+nt = float(input('Nota da primeira prova da NP1'))
+nt2 = float(input('Nota da segunda prova da NP2'))
+print('Somando a primeira prova {}, e a segunda {}, a média do aluno é {}'.format(nt, nt2, (nt + nt2)/2 ))
+
+#Média aritmética2.0
+
+nt = float(input('Nota da primeira prova da NP1'))
+nt2 = float(input('Nota da segunda prova da NP2'))
+m = (nt + nt2) /2 
+print('A nota da primeira prova {}, e da segunda {}, a média do aluno foi {}'.format(nt, nt2, m))
+
+#Unidade de medida
+m = float(input('Numero em metros'))
+km = m  / 1000
+hc = m / 100
+dc = m / 10
+dm = m * 10
+cm = m * 100
+mm = m * 1000
+print('\n{}quilometros, \n{}hectometro, \n{}decametro, \n{}decimetro, \n{}centimetro, \n{}milimetro'.format(km, hc, dc, dm, cm, mm))
+
+#unidade de Media 2.0
+medida = float(input('Valor em metros'))
+print('\n{}Quilometros \n{}Hectometro \n{}decametro \n{}decimetro \n{}centimetro \n{}milimetro'.format((medida / 1000), (medida / 100), (medida / 10), (medida * 10), (medida * 100), (medida * 1000)))
+
+
+
+
+
+
+
