@@ -125,7 +125,49 @@ km = float(input('Quantos Km você rodará com o carro?'))
 pagamento = (dias * 60) + (km * 0.15)
 print('O total a pagar é R${:.2f}'.format(pagamento))
 
+#Codificação para ler um número real em valor inteiro
+from math import trunc
 
+num = float(input('Digite um valor'))
+valor = trunc(num)
+#Primeira Forma de ler um numero real para inteiro
+print('O numero real é {}, e seu valor inteiro é {}'.format(num, valor))
+#Segunda forma para ler um numero real para inteiro
+print('O numero real é {}, e seu valor inteiro é {}'.format(num, (trunc(num))))
+
+#Teorema de Pitagores, CATETO OPOSTO, CATETO ADJACENTE e valor da HIPOTENUSA
+from math import sqrt, pow
+cateto1 = int(input('Digite o valor do Cateto Oposto'))
+cateto2 = int(input('Digite o valor do Cateto Adjacente '))
+soma = pow(cateto1, 2) + pow(cateto2, 2) 
+print('A soma dos cateto é{}, a hipotenusa do triângulo é {:.2f}'.format((soma),(sqrt(soma))))
+
+#Outra forma de Calcular o Teorema de Pitagoras, CATETO OPOSTO, CATETO ADJACENTE e valor da HIPOTENUSA
+import math 
+
+cateto_op = float(input('Comprimento do cateto oposto'))
+cateto_ad = float(input('Comprimento do cateto adjacente'))
+hipotenusa = math.hypot(cateto_op, cateto_ad)
+print('O valor da hipotenusa é {:.2f}'.format(hipotenusa))
+
+#Calculo do Seno, Cosseno e Tangente
+from math import sin, cos, tan, radians
+
+angulo = float(input('Descreve o angulo que deseja: '))
+angulo_radiano =  radians(angulo)
+seno = sin(angulo_radiano)
+cosseno = cos(angulo_radiano)
+tangente = tan(angulo_radiano)
+print('O angulo de {} \nseno é {:.2f} \ncosseno é {:.2f} \ntangente {:.2f}'.format(angulo, seno, cosseno, tangente))
+
+#Calculo do Seno, Cosseno e Tangente de outra forma
+import math
+
+angulo = float(input('Digite o angulo que deseja'))
+seno = math.sin(math.radians(angulo))
+cosseno = math.cos(math.radians(angulo))
+tangente = math.tan(math.radians(angulo))
+print('O angulo {} em seno é {:.2f}\nCosseno é {:.2f}\nTangente é {:.2f}'.format(angulo, seno, cosseno, tangente ))
 
 
 
