@@ -87,7 +87,43 @@ print('\n{}quilometros, \n{}hectometro, \n{}decametro, \n{}decimetro, \n{}centim
 medida = float(input('Valor em metros'))
 print('\n{}Quilometros \n{}Hectometro \n{}decametro \n{}decimetro \n{}centimetro \n{}milimetro'.format((medida / 1000), (medida / 100), (medida / 10), (medida * 10), (medida * 100), (medida * 1000)))
 
+#Calculo de Porcentagem AUMENTO
+nome = float(input('Digite o salário do funcionário, R$'))
+valor = nome + (nome * 15 / 100)
+print('O salário do funcionário é {:.2f}, com 15% de desconto, seu salário atual é {:.2f}'.format(nome, valor))
 
+#Calculo de porcentagem AUMENTO 2.0
+nome = float(input('Digite o salário do funcionário, R$'))
+print('O salário do funcionário é {:.2f}, com 15% de desconto, seu salário atual é {:.2f}'.format(nome, (nome + (nome * 15 / 100))))
+
+#Porcentagem com DESCONTO
+nome = float(input('Digite o salário do funcionário, R$'))
+valor = nome - (nome * 5 / 100)
+print('O salário do funcionário é {:.2f}, com 5% de desconto, atual ele recebe {:.2f}'.format(nome, valor))
+
+#Porcentagem com DESCONTO 2.0
+nome = float(input('Digite o salário do seu funcionário, R$'))
+print('O salário do funcionário é {:.2f}, com 5% de desconto, atualmente ele recebe {:.2f}'.format(nome, (nome - (nome * 5 / 100))))
+
+#Conversor de Graus Celsius para Fahrenheit
+c = float(input('Digite o valor de Grau C^'))
+f = (c * 1.8) + 32
+print('O graus em C é {}, convertido para fahrenheit é {}'.format(c, f))
+
+#Conversor de Graus Celsius para Fahrenheit 2.0
+c = float(input('Digite um valor de Graus C^'))
+print('O graus em C é {}, convertido para fahrenheit é {}'.format(c, (c * (9/5) + 32)))
+
+#Aluguel de automóveis
+dias = int(input('Quantos dias você alugará esse carro?'))
+km = float(input('Quantos Km você rodou com o carro?'))
+print('O total a pagar é R${:.2f}'.format((dias * 60.00) + (km * 0.15)))
+
+#Aluguel de automóveis
+dias = int(input('Quantos dias será alugado?'))
+km = float(input('Quantos Km você rodará com o carro?'))
+pagamento = (dias * 60) + (km * 0.15)
+print('O total a pagar é R${:.2f}'.format(pagamento))
 
 
 
