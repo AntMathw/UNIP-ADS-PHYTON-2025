@@ -169,5 +169,49 @@ cosseno = math.cos(math.radians(angulo))
 tangente = math.tan(math.radians(angulo))
 print('O angulo {} em seno é {:.2f}\nCosseno é {:.2f}\nTangente é {:.2f}'.format(angulo, seno, cosseno, tangente ))
 
+#Exemplo de lista
+import random
+
+n1 = str(input('O primeiro aluno '))
+n2 = str(input('Segundo aluno '))
+n3 = str(input('Terceiro aluno '))
+n4 = str(input('Quarto aluno '))
+lista = [n1, n2, n3, n4]
+print('A escolha do professor é: {}'.format(random.choice(lista)))
+
+#Exemplo de lista 2.0
+from random import choice
+
+n1 = str(input('Primero Aluno '))
+n2 = str(input('Segundo Aluno '))
+n3 = str(input('Terceiro Aluno '))
+n4 = str(input('Quarto aluno '))
+lista = [n1, n2, n3, n4]
+escolha = choice(lista)
+print('O escolhido foi: {}'.format(escolha))
+
+#Exeplo de lista de ordem randomica
+
+from random import shuffle
+
+n1 = str(input('Primeiro Aluno '))
+n2 = str(input('Segundo Aluno '))
+n3 = str(input('Terceiro Aluno '))
+n4 = str(input('Quarto aluno '))
+lista = [n1, n2, n3 ,n4]
+shuffle(lista)
+print('A ordem de apresentação séra: {}'.format(lista))
+
+#Exeplo de lista de ordem randomica 2.0
+import random
+
+n1 = str(input('Primeiro aluno '))
+n2 = str(input('Segundo aluno '))
+n3 = str(input('Terceiro aluno '))
+n4 = str(input('Quarto aluno '))
+lista = [n1, n2, n3, n4]
+print('A ordem dos alunos é: {}'.format(random.choice(lista)))
+
+
 
 
