@@ -1,17 +1,3 @@
-#Soma de dois numeros 
-num = int(input('Escreva o primeiro numero'))
-num2 = int(input('Escreva o segundo numero'))
-soma = num + num2
-print(f'O resultado é {soma}')
-
-#Divisão de um numero e multiplicação
-n = float(input('Escreva o primeiro valor'))
-n2 = float(input('Escreva o segundo valor'))
-n3 = float(input('Escreva o terceiro valor'))
-r = n / n2 * n3
-
-print(f'O resultado dessa conta {r} é')
-
 #Velocidade média
 import sys
     
