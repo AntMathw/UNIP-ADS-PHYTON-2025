@@ -1,3 +1,4 @@
+#Calculo da velocidade media
 import sys
 
 def calculaVelocidadeMedia(distancia, tempo):
