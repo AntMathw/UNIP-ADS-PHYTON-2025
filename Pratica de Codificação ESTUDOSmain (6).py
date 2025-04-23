@@ -198,6 +198,50 @@ n4 = str(input('Quarto aluno '))
 lista = [n1, n2, n3, n4]
 print('A ordem dos alunos é: {}'.format(random.choice(lista)))
 
+#Separando digitos de um número
 
+numero = int(input('Informe um numero: '))
+unidade = numero // 1 % 10
+dezena = numero // 10 % 10
+centena = numero // 100 % 10
+milhar = numero // 1000 % 10
+print('Analisando o numero: {} \nunidade {} \ndezena {} \ncentena {} \nmilhar {}'.format(numero, unidade, dezena, centena, milhar))
+
+#Separando digitos de um número 2.0
+numero = int(input('Informe um numero: '))
+unidade = numero // 1 % 10
+dezena = numero // 10 % 10
+centena = numero // 100 % 10
+milhar = numero // 1000 % 10
+print('Analisando o numero: {}'.format(numero))
+print('Unidade: {}'.format(unidade))
+print('Dezena: {}'.format(dezena))
+print('Centena: {}'.format(centena))
+print('Milhar: {}'.format(milhar))
+
+#Verificando primeiras letras do texto
+cidade = str(input('Digite o nome da cidade: ')).upper().strip().split()
+print('SANTO' in cidade[0])
+
+#Verificando primeira e ultima ocorrência em uma string
+nome = str(input('Digite o seu nome: ')).upper().strip().split()
+print('SILVA' in nome)
+
+#Manipulando texto
+nome = str(input('Digite seu nome completo: '))
+print('Seu nome em MAIUSCULO é {} \nSeu nome em minusculo é {}'.format(nome.upper(), nome.lower()))
+print('Seu nome possui {}letras \nSeu primeiro nome {} possui {} letras'.format(len(nome) - nome.count(' '), nome.split()[0], len(nome.split()[0])))
+
+#Manipulando string, quantas vezes aparece em primeiro e em último
+frase = str(input('Digite uma frase: '))
+print(frase.count('A'), frase.count('a'), frase.count('Ã'), frase.count('ã'))
+print(frase.find('A'), frase.find('a'))
+print(frase.rfind('a'), frase.rfind('A'))
+
+#Lendo uma string em que se encontra em primeiro e ultimo
+nome = str(input('Digite seu nome completo: ')).strip()
+nome = nome.split()
+print('Seu primero nome é: {}'.format(nome[0]))
+print('Seu ultimo nome é: {}'.format(nome[len(nome)-1]))
 
 
