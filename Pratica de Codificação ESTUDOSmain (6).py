@@ -244,4 +244,92 @@ nome = nome.split()
 print('Seu primero nome é: {}'.format(nome[0]))
 print('Seu ultimo nome é: {}'.format(nome[len(nome)-1]))
 
+#Jogo de advinhação com IF e ELSE
+
+from random import randint
+from time import sleep
+
+computador = randint(0, 5)
+print('-=-' * 20)
+print('Vou pensar em número de 0 a 5. TENTE ADVINHAR...'.format(computador))
+print('-=-' * 20)
+jogador = int(input('Em que numero pensei? '))
+print('PROCESSANDO...')
+sleep(3)
+
+if jogador == computador:
+    #print('PARABENS! Você me venceu!')
+else:
+    print('GANHEI! Eu escolhi o numero {} e nao {}'.format(computador, jogador))
+
+#Radar Eletrônico
+velocidade = float(input('Qual é a velocidade atual do carro? '))
+multa = (velocidade - 80) * 7
+if velocidade <= 80:
+    print('Você está dirigindo com segurança! Tenha um bom dia!')
+else:
+    print('MULTADO! Você execedeu o  limite de velocidade permitido que é de 80KM/hr\nVocê deve pagar um multa de R${}!'.format(multa))
+    print('Tenha um bom dia!')
+
+#Número impar ou par
+numero = int(input('Informe um valor: '))
+if numero % 2 == 0:
+    print('O número é PAR')
+else:
+    print('Ele é ÍMPAR')
+
+#Distância da viagem
+viagem = float(input('Qual a distância da viagem? '))
+print('Você está preste a fazer uma viagem de {:.1f}km'.format(viagem))
+if viagem <= 200:
+    print('O preço da sua passagem será de R${:.2f}'.format(viagem * 0.50))
+else:
+    print('O preço da sua passagem será de R${:.2f}'.format(viagem * 0.45))
+
+#Calculo do Ano Bissexto
+from datetime import date
+
+ano = int(input('Que ano quer analisar? Coloque 0 para analisar o ano atual: '))
+if ano == 0:
+    ano = date.today().year
+if ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+    print('Seu ano {} é BISSEXTO'.format(ano))
+else:
+    print('Seu ano {} não é BISSEXTO'.format(ano))
+
+#Menor e Maior Valor
+n1 = float(input('Digite o primeiro número: '))
+n2 = float(input('Digite o segundo número: '))
+n3 = float(input('Digite o terceiro número: '))
+
+menor = n1
+if n2 < n1 and n2 < n3:
+    menor = n2
+if n3 < n1 and n3 < n2:
+    menor = n3
+
+maior = n1
+if n2 > n1 and n2 > n3:
+    maior = n2
+if n3 > n1 and n3 > n2:
+    maior = n3
+
+print('O maior valor digitado foi o {} e o menor {}.'.format(maior, menor))
+
+#Aumento salário de acordo com o salário original
+salario = float(input('Qual o salário do funcionário? R$ '))
+if salario <= 1250:
+    print('Quem ganhava R${}, passa a ganhar R$ {:.2f} agora'.format(salario, (salario * 1.15)))
+elif salario > 1250:
+    print('Quem ganhava R${}, passa a ganhar R$ {:.2f} agora'.format(salario, (salario * 1.10)))
+
+#Saber se um traingulo existe
+r1 = float(input('Digite primero segmento da reta'))
+r2 = float(input('Digite o segundo segmento da reta'))
+r3 = float(input('Digite o tercerio seggmento da reta'))
+if r1 < r2 + r3 and r1 < r3 + r2 and r2 < r3 + r1:
+    print('O triangulo existe')
+else:
+    print('O triangulo nao existe')
+
 
