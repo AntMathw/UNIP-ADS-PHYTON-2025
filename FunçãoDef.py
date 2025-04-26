@@ -31,17 +31,7 @@ if __name__=='__main__':
 
 #Sequencia de Fibonacci
 
-#Calculo da Formula de Fibonacci
 
-a1 = 0
-a2 = 1
-n = int(input('Digite o número de termos: '))
-cont = 3
-print('{} {}'.format(a1, a2), end=' ')
-while cont <= n:
-    a3 = a2 + a1
-    print('{}'.format(a3), end=' ')
-    cont += 1
-    a1 = a2
-    a2 = a3
+
+
 
