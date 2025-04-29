@@ -1,3 +1,17 @@
+#Soma de dois numeros(DEF FUCTION)
+
+def soma(num1, num2):
+    return num1 + num2
+
+def main():
+    num1 = int(input('Digite um valor: '))
+    num2 = int(input('Digite segundo valor: '))
+    print('A soma entre {} e {} é {}'.format(num1, num2, soma(num1, num2)))
+
+if __name__ == '__main__':
+    main()
+
+
 #Calculo da velocidade media
 import sys
 
