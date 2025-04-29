@@ -11,6 +11,19 @@ def main():
 if __name__ == '__main__':
     main()
 
+#Média de duas provas (DEF FUCTION)
+
+def calculo_media(np1, np2):
+    return (np1 + np2) / 2
+
+def main():
+    np1 = float(input('Valor da primeira prova: '))
+    np2 = float(input('Valor da segunda prova: '))
+    print('A nota entre {} e {} a média {}'.format(np1, np2, calculo_media(np1, np2)))
+
+
+if __name__ == '__main__':
+    main()
 
 #Calculo da velocidade media
 import sys
