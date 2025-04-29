@@ -25,6 +25,46 @@ def main():
 if __name__ == '__main__':
     main()
 
+#Par ou Impar(DEF FUNCTION)
+
+def impar_par(num1):
+    return num1 % 2 == 0
+
+
+def main():
+    num1 = int(input('Digite um valor: '))
+    if impar_par(num1):
+        print('Par')
+    else:
+        print('Impar'.format(num1 % 3 == 0))
+
+
+
+if __name__ == '__main__':
+    main()
+
+#Maior número entre dois
+
+def maior_menor(num1, num2):
+    return num1 > num2 or num2 > num1
+
+def main():
+    num1 = int(input('Digite um numero: '))
+    num2 = int(input('Digite outro numero: '))
+    if num1 > num2:
+        print('O primeiro valor é maior: {}'.format(num1))
+    elif num1 == num2:
+        print('Os numeros são igual ')
+    elif num2 > num1:
+        print('O segundo valor é maior: {}'.format(num2))
+
+
+
+if __name__ == '__main__':
+    main()
+
+
+
 #Calculo da velocidade media
 import sys
 
