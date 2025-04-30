@@ -1,5 +1,7 @@
 #Sequência de Fibonacci
 
+import sys
+
 def fibonacci_recursive(n):
     
     if n <= 1:
