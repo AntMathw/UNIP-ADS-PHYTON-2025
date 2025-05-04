@@ -90,6 +90,24 @@ def main():
 if __name__=='__main__':
     main()
 
+#Tabuada em DEF
+
+import sys
+
+def tabuada(num):
+    for i in range(1, 11):
+        resultado = num * i
+        print("{} x {} = {}".format(num, i, resultado))
+
+def main():
+    numero = int(input('Digite um número para ver a tabuada: '))
+    tabuada(numero)
+
+
+if __name__ == '__main__':
+    main()
+
+
 
 #Calculo da velocidade media
 import sys
