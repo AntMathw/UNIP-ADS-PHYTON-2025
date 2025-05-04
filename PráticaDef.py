@@ -63,6 +63,32 @@ def main():
 if __name__ == '__main__':
     main()
 
+#Positivo, Negativo ou Nulo
+
+import sys
+
+def variacao_cont(num):
+    if num == 0:
+        return 0
+    elif num > 0:
+        return 1
+    else:
+        return -1
+
+def main():
+    numero = int(input('Digite um valor: '))
+    v = variacao_cont(numero)
+    if v == 0:
+        print('O numero e nulo')
+    elif v > 0:
+        print('O numero é positivo')
+    elif v < 0:
+        print('O numero é negativo')
+
+
+
+if __name__=='__main__':
+    main()
 
 
 #Calculo da velocidade media
