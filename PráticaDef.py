@@ -38,6 +38,19 @@ def main():
     else:
         print('Impar'.format(num1 % 3 == 0))
 
+#Contagem Regressiva(DEF FUNCTION)
+
+def contagem(num):
+    for i in range(9, 0, -1):
+        print(i)
+
+def main():
+    numero = int(input('Digite um numero: '))
+    contagem(numero)
+
+if __name__ == '__main__':
+    main()
+
 
 
 if __name__ == '__main__':
