@@ -332,4 +332,29 @@ if r1 < r2 + r3 and r1 < r3 + r2 and r2 < r3 + r1:
 else:
     print('O triangulo nao existe')
 
+import sys
+import json
 
+
+#Parte 2: Dicionários
+Nome = input('Nome...: ' ).upper()
+Celular = input('celular: ')
+Email = input('E-mail.: ').lower()
+
+agenda = {}
+agenda['nome'] = Nome
+agenda['celular'] = Celular
+agenda['email'] = Email
+
+print(agenda)
+print('nome: {}'.format(agenda['nome']))    #Utilizando a formatação .format()
+print('celular: {}'.format(agenda['celular'])) #Variável NOME, CELULAR E EMAIL
+print('email: {}'.format(agenda['email']))
+
+lista = []
+lista.append(agenda)
+print(lista)
+
+with open('dados.json','w') as arquivo:
+    json.dump(lista,arquivo,indent=4)
+    
