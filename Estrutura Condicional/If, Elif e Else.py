@@ -33,7 +33,19 @@ elif nota >= 70:        #Como a nota é 70, ele executara esse bloco da estrutur
 else: 
     print("Nota D")
 
+#Estrutura se a pesso tem CNH
 
+idade = int(input('Digite sua idade: '))
+cnh = True
+
+if idade >= 18:
+    if cnh:
+        print('Tem idade e possui CNH')
+    else:
+        print('Não dirigi sem a carteira')
+else:
+    print('Não tem carteira por ser menor de idade')
+    
 
 
 
