@@ -20,7 +20,18 @@ if sub > 16:
 else:
   print('Ainda não possui a idade necessária')
 
+#Estrutura das notas
 
+nota = 75 
+ 
+if nota >= 90: 
+    print("Nota A") 
+elif nota >= 80: 
+    print("Nota B") 
+elif nota >= 70:        #Como a nota é 70, ele executara esse bloco da estrutura
+    print("Nota C") 
+else: 
+    print("Nota D")
 
 
 
