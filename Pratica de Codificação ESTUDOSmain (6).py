@@ -357,4 +357,14 @@ print(lista)
 
 with open('dados.json','w') as arquivo:
     json.dump(lista,arquivo,indent=4)
-    
+
+#Utilização Json de outra forma
+
+import json
+
+with open('dados.json', 'r') as arquivos:
+    lista_carregada = json.load(arquivos)
+
+print(lista_carregada)
+
+print(lista_carregada[0]['email'])
