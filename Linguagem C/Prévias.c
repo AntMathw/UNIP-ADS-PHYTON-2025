@@ -31,3 +31,18 @@ float calc_media(float p1, float p2){
     return média;
     
 }
+
+//Outra forma de calcular média
+
+#include <stdio.h>
+
+int main(){
+    float prova1, prova2, média;
+    scanf("%f", &prova1);
+    scanf("%f", &prova2);
+    média = (prova1 + prova2) / 2.0;
+    printf("%.2f", média);
+    
+return 0;
+
+}
