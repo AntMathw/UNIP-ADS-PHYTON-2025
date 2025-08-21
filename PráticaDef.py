@@ -195,5 +195,24 @@ def main():
 if __name__ == '__main__':
   main()
 
+#Tuplas em função DEF
+
+
+def comidas():
+    lanche = ('hamburguer', 'suco', 'pizza', 'pudim')
+    return lanche
+
+def main():
+    itens = comidas()
+    for pos, item in enumerate(itens):
+        print(f'Eu vou comer {itens}, na posição{pos}')
+
+if __name__ == '__main__':
+  main()
+
+
+
+
+
 
 
