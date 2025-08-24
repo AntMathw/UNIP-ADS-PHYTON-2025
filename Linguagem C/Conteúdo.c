@@ -46,3 +46,21 @@ int main(){
 return 0;
 
 }
+
+// Multiplicação 
+
+#include <stdio.h>
+
+int main(){
+    int valor, multiplicando, resultado;
+    printf("Digite um valor: ");
+    scanf("%i", &valor);
+    printf("Digite outro valor: ");
+    scanf("%i", &multiplicando);
+    resultado = (valor * multiplicando);
+    printf("O resultado é: %i", resultado);
+
+    
+return 0;
+    
+}
