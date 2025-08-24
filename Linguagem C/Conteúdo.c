@@ -64,3 +64,30 @@ int main(){
 return 0;
     
 }
+
+//Outra forma de multiplicar
+
+#include <stdio.h>
+
+int calc_multiplicando(int valor, int multiplicando);
+
+int main(){
+    int valor, multiplicando, resultado;
+    printf("Digite o primeiro valor: ");
+    scanf("%i", &valor);
+    printf("digite o segundo valor: ");
+    scanf("%i", &multiplicando);
+    resultado = calc_multiplicando(valor, multiplicando);
+    printf("O resultado é: %i", resultado);
+    
+return 0;
+
+}
+
+int calc_multiplicando(int valor, int multiplicando){
+    int resultado;
+    resultado = (valor * multiplicando);
+    return resultado;
+    
+}
+
