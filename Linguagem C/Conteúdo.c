@@ -91,3 +91,32 @@ int calc_multiplicando(int valor, int multiplicando){
     
 }
 
+//Raiz quadrada, somatório e divisão
+
+#include <stdio.h>
+#include <math.h>
+
+float calcular(float numero_raiz, float numero_soma);
+
+int main() {
+    float numero_raiz, numero_soma, resultado;
+
+    printf("Digite um número para a raiz quadrada: ");
+    scanf("%f", &numero_raiz);
+
+    printf("Digite um número para somar: ");
+    scanf("%f", &numero_soma);
+
+    resultado = calcular(numero_raiz, numero_soma);
+
+    printf("O resultado é: %f\n", resultado);
+
+    return 0;
+}
+
+float calcular(float numero_raiz, float numero_soma) {
+    float raiz = sqrt(numero_raiz);
+    float soma = raiz + numero_soma;
+    float resultado = soma / 2.0;
+    return resultado;
+}
