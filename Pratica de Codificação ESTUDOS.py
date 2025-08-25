@@ -368,3 +368,12 @@ with open('dados.json', 'r') as arquivos:
 print(lista_carregada)
 
 print(lista_carregada[0]['email'])
+
+#Tabuada com função While
+
+cont = 0
+num = int(input('Digite um número e mostra sua tabuada: '))
+
+while cont < 10:
+    cont += 1
+    print(f'{num} x {cont} = {num * cont}')
