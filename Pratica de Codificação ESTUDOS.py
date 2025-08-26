@@ -393,3 +393,9 @@ def carregar_contatos():
             return()
         
     return()
+
+contatos = carregar_contatos()
+
+for contato in contatos:
+    print(f'nome: {contato['nome']}, celular: {contato['celular']}')
+
