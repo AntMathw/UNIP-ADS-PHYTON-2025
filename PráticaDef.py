@@ -210,6 +210,39 @@ def main():
 if __name__ == '__main__':
   main()
 
+#Jogo de Pedra, Papel e Tesoura
+
+import random
+
+
+def main():
+    opcoes = ['pedra', 'papel', 'tesoura']
+
+    print("Vamos jogar Pedra, Papel e Tesoura!")
+    escolha_usuario = input("Escolha pedra, papel ou tesoura: ").lower()
+
+    if escolha_usuario not in opcoes:
+        print("Escolha inválida! Por favor, escolha pedra, papel ou tesoura.")
+        return
+
+    escolha_computador = random.choice(opcoes)
+    print(f"O computador escolheu: {escolha_computador}")
+
+    if escolha_usuario == escolha_computador:
+        print("Empate!")
+    elif (escolha_usuario == 'pedra' and escolha_computador == 'tesoura') or \
+            (escolha_usuario == 'papel' and escolha_computador == 'pedra') or \
+            (escolha_usuario == 'tesoura' and escolha_computador == 'papel'):
+        print("Você ganhou!")
+    else:
+        print("Você perdeu!")
+
+
+if __name__ == "__main__":
+    main()
+
+
+
 
 
 
