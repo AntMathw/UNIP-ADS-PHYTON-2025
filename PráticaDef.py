@@ -241,6 +241,44 @@ def main():
 if __name__ == "__main__":
     main()
 
+#Ler nome do usuário e sua idade(JSON)
+
+import json
+
+
+def salvar_dados(nome, idade, arquivo='dados.json'):
+    dados = {
+        'nome': nome,
+        'idade': idade
+    }
+    with open(arquivo, 'w') as f:
+        json.dump(dados, f, indent=4)
+    print("✅ Dados salvos com sucesso!")
+
+def carregar_dados(arquivo='dados.json'):
+    try:
+        with open(arquivo, 'r') as f:
+            dados = json.load(f)
+        print("Dados carregados:")
+        print(f"Nome: {dados['nome']}")
+        print(f"Idade: {dados['idade']}")
+    except FileNotFoundError:
+        print("Arquivo não encontrado.")
+    except json.JSONDecodeError:
+        print("Erro ao ler o arquivo JSON.")
+
+
+if __name__ == "__main__":
+    nome = input("Digite seu nome: ")
+    idade = input("Digite sua idade: ")
+    
+    salvar_dados(nome, idade)
+    print("\nAgora vamos ler os dados salvos...\n")
+    carregar_dados()
+
+
+
+
 
 
 
