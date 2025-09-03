@@ -276,6 +276,23 @@ if __name__ == "__main__":
     print("\nAgora vamos ler os dados salvos...\n")
     carregar_dados()
 
+#Sensor de Temperatura
+
+import random
+
+def gerar_dados_sensor(qtd_leitura):
+    dados_sensor = [round(random.uniform(15.0, 35.0),2) for  _ in range(qtd_leitura)]
+    return dados_sensor
+
+def principal():
+    quantidade_leituras = 10000
+    dados = gerar_dados_sensor(quantidade_leituras)
+    print(f'Quantidade de leituras geradas: {len(dados)}')
+
+if __name__ == '__main__':
+    principal()
+
+
 
 
 
