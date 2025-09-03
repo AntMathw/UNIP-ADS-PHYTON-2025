@@ -287,10 +287,15 @@ def gerar_dados_sensor(qtd_leitura):
 def principal():
     quantidade_leituras = 10000
     dados = gerar_dados_sensor(quantidade_leituras)
-    print(f'Quantidade de leituras geradas: {len(dados)}')
+    print(f'Quantidade de leituras geradas: {dados[3:9999]} ')
+    for i in range(0, 9):
+        print(f'Leitura dos {dados[0:99]} numeros primeiros')
+
 
 if __name__ == '__main__':
     principal()
+
+
 
 
 
