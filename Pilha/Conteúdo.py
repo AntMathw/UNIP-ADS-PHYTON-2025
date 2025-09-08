@@ -1,4 +1,5 @@
 #Lista em formato de Pilhas com INSERT, POP e DEL 
+#LIFO (Last In First Out)
 
 def main():
     
