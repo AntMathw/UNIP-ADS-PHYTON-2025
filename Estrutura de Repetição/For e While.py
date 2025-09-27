@@ -220,3 +220,41 @@ while opcao != 0:
         print("Exibindo o extrato...")
 else:
     print("Obrigado por usar nosso sistema bancário, até logo!")
+
+# Este programa demonstra o uso do loop 'while' dentro de uma função ('def')
+# para criar uma contagem regressiva.
+
+def contagem_regressiva(inicio):
+    """
+    Realiza uma contagem regressiva a partir do número fornecido até 1.
+    
+    Args:
+        inicio (int): O número inicial da contagem.
+    """
+    
+    # 1. Inicializa a variável de controle com o valor passado para a função
+    contador = inicio
+
+    print(f"\nIniciando contagem a partir de {contador}...")
+
+    # 2. Inicia o loop 'while'
+    # O loop continua executando ENQUANTO 'contador' for maior que zero (0).
+    while contador > 0:
+        
+        # Exibe o valor atual do contador
+        print(f"Contagem: {contador}")
+        
+        # Diminui o valor da variável de controle.
+        contador -= 1
+        
+    # 3. Código fora do loop 'while'
+    print("FIM da contagem regressiva!")
+
+# --- Bloco principal de execução ---
+if __name__ == "__main__":
+    # Chamamos a função, passando o número inicial que desejamos
+    contagem_regressiva(10)
+    
+    # Podemos reutilizar a função com um valor diferente!
+    # contagem_regressiva(3)
+
