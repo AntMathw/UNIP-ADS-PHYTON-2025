@@ -4,7 +4,7 @@ Este repositório contém materiais de estudo, exercícios e projetos desenvolvi
 
 Python é escolhido por sua sintaxe limpa e legível, o que o torna ideal para solidificar a lógica de programação, além de ser uma ferramenta poderosa para o desenvolvimento profissional.
 
-🎯 Objetivos do Estudo em Python
+# 🎯 Objetivos do Estudo em Python
 Ao final da disciplina, espera-se que o aluno de ADS seja capaz de:
 
 Aplicar a Lógica de Programação e conceitos de Algoritmos utilizando a sintaxe Python.
@@ -15,7 +15,7 @@ Desenvolver soluções de automação e scripts básicos para tarefas de TI.
 
 Compreender a base para futuras aplicações em Web (com frameworks como Flask/Django) e Ciência de Dados (com bibliotecas como Pandas e NumPy), áreas chave para o profissional de ADS.
 
-🛠️ Pré-requisitos e Ferramentas
+# 🛠️ Pré-requisitos e Ferramentas
 Para começar a programar em Python, você precisará:
 
 Ferramenta	Descrição
@@ -29,7 +29,7 @@ Para rodar um arquivo Python (meu_programa.py) via terminal:
 Bash
 
 python meu_programa.py
-📚 Tópicos Essenciais de Python para ADS
+# 📚 Tópicos Essenciais de Python para ADS
 Abaixo estão os módulos e conceitos que você deve dominar:
 
 1. Fundamentos da Linguagem
@@ -73,7 +73,7 @@ Manipulação de Arquivos: Leitura e escrita de dados em arquivos de texto (.txt
 
 Tratamento de Exceções: Uso de try, except e finally para criar códigos mais robustos (prevenção de erros).
 
-💡 Aplicação em Projetos (PIM)
+# 💡 Aplicação em Projetos (PIM)
 Em projetos como o PIM (Projeto Integrado Multidisciplinar), o Python pode ser usado para:
 
 Sistemas de Cadastro: Criar um sistema de gerenciamento de dados de clientes, produtos ou alunos, usando Dicionários ou Listas de objetos.
