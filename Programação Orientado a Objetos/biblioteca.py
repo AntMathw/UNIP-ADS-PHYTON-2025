@@ -1,8 +1,5 @@
 class Livro:
-    """
-    Representa um livro na biblioteca.
-    Possui título, autor e um status de disponibilidade.
-    """
+    
     def __init__(self, titulo: str, autor: str, isbn: str):
         # Atributos do objeto Livro
         self.titulo = titulo
