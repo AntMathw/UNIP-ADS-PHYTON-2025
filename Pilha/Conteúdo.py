@@ -123,3 +123,69 @@ while EXECUTANDO:
         print("\nPrograma encerrado. Até mais!")
     else:
         print("Opção inválida. Tente novamente.")
+
+#Exemplo de PILHA
+
+# A lista 'minha_pilha' funcionará como nossa estrutura de pilha.
+# O "topo" da pilha é o final da lista.
+minha_pilha = []
+
+# -----------------------------------------------------------------
+# 1. Operação PUSH (Empilhar/Adicionar)
+# Usamos o método append() para adicionar um item no topo da pilha.
+# -----------------------------------------------------------------
+print("--- PUSH (Adicionar) ---")
+minha_pilha.append("Página 1: Início")
+print(f"Pilha: {minha_pilha}")
+
+minha_pilha.append("Página 2: Produtos")
+print(f"Pilha: {minha_pilha}")
+
+minha_pilha.append("Página 3: Checkout")
+# "Página 3" é o último a entrar, está no TOPO da pilha.
+print(f"Pilha: {minha_pilha}")
+
+print("-" * 30)
+
+# -----------------------------------------------------------------
+# 2. Operação PEEK (Espiar/Ver o Topo)
+# Vê o elemento do topo sem removê-lo.
+# -----------------------------------------------------------------
+if minha_pilha:
+    topo_atual = minha_pilha[-1] # Acessa o último elemento (o topo)
+    print(f"Elemento no Topo (PEEK): {topo_atual}")
+    print(f"Pilha APÓS PEEK: {minha_pilha}") # O tamanho da pilha não mudou
+
+print("-" * 30)
+
+# -----------------------------------------------------------------
+# 3. Operação POP (Desempilhar/Remover)
+# Usamos o método pop() para remover e retornar o item do topo (LIFO).
+# -----------------------------------------------------------------
+print("--- POP (Remover) ---")
+if minha_pilha:
+    # Remove e retorna o último elemento adicionado ("Página 3")
+    item_removido = minha_pilha.pop()
+    print(f"POP: Removido '{item_removido}'. (Voltando para a página anterior)")
+    print(f"Pilha atual: {minha_pilha}")
+
+if minha_pilha:
+    # Remove e retorna o novo elemento do topo ("Página 2")
+    item_removido = minha_pilha.pop()
+    print(f"POP: Removido '{item_removido}'. (Voltando para a página anterior)")
+    print(f"Pilha atual: {minha_pilha}")
+
+print("-" * 30)
+
+# -----------------------------------------------------------------
+# 4. Verificação de Pilha Vazia (isEmpty)
+# -----------------------------------------------------------------
+# A pilha está vazia?
+print(f"A pilha está vazia? {'Sim' if not minha_pilha else 'Não'}")
+
+# Esvaziando o último item
+if minha_pilha:
+    minha_pilha.pop()
+    print(f"Pilha após esvaziar: {minha_pilha}")
+
+print(f"A pilha está vazia? {'Sim' if not minha_pilha else 'Não'}")
