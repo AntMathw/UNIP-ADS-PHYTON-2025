@@ -27,4 +27,11 @@ def main():
 
 main()
 
+# Definindo a função que recebe dois números e retorna a soma deles
+def somar(a, b):
+    return a + b
+
+# Chamando a função e imprimindo o resultado
+resultado = somar(5, 3)
+print("A soma é:", resultado)
 
