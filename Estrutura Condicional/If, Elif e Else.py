@@ -279,6 +279,17 @@ else:
     print("Ainda não pode tirar a CNH.")
 
 
+idade = 20
+
+# Verifica as condições
+if idade >= 18:
+    print("Você tem 18 anos ou mais. Você está apto a dirigir e votar.")
+elif idade >= 16:
+    # Esta condição só é verificada se a anterior (idade >= 18) for Falsa
+    print("Você tem 16 ou 17 anos. Você pode votar (voto opcional), mas não pode dirigir.")
+else:
+    # Executado se 'idade' for menor que 16
+    print("Você tem menos de 16 anos. Você não pode votar nem dirigir.")
 
 
 
