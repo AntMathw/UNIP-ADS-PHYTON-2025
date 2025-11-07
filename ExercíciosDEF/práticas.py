@@ -35,3 +35,29 @@ def somar(a, b):
 resultado = somar(5, 3)
 print("A soma é:", resultado)
 
+def main():
+    """
+    Função principal onde a execução do seu programa começa.
+    """
+    # 1. Defina uma variável
+    mensagem = "Olá do meu script Python!"
+
+    # 2. Imprima a variável
+    print(mensagem)
+
+    # 3. Chame outras funções (se houver)
+    resultado = calcular_algo(5, 3)
+    print(f"O resultado do cálculo é: {resultado}")
+
+
+def calcular_algo(a, b):
+    """
+    Uma função auxiliar que realiza alguma operação.
+    """
+    return a + b
+
+
+# Bloco de execução principal
+if __name__ == "__main__":
+    main()
+
