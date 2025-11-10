@@ -103,3 +103,32 @@ print(f"Lista ordenada (Merge Sort): {lista_ordenada}")
 dados_grandes = [90, 45, 2, 78, 10, 50, 3, 22, 1]
 print(f"\nLista grande original: {dados_grandes}")
 print(f"Lista grande ordenada: {merge_sort(dados_grandes)}")
+
+def bubble_sort(lista):
+    n = len(lista)
+
+    # Laço externo: Percorre todos os elementos da lista (n-1 vezes)
+    for i in range(n):
+        # Flag para otimização: se nenhuma troca ocorrer, a lista está ordenada
+        troca_ocorre = False
+
+        # Laço interno: Percorre a lista de 0 a n-i-1
+        # O '-i' é porque os últimos 'i' elementos já estão ordenados e não precisam ser verificados
+        for j in range(0, n - i - 1):
+            
+            # Comparação de elementos adjacentes
+            if lista[j] > lista[j + 1]:
+                # Troca de elementos
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+                troca_ocorre = True
+        
+        # Otimização: Se nenhuma troca ocorreu nesta passagem, a lista está ordenada
+        if not troca_ocorre:
+            break
+    
+    return lista
+
+# Exemplo de uso:
+dados = [64, 34, 25, 12, 22, 11, 90]
+lista_ordenada = bubble_sort(dados)
+print(f"Lista ordenada: {lista_ordenada}")
