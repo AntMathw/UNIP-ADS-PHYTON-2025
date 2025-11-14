@@ -132,3 +132,101 @@ def bubble_sort(lista):
 dados = [64, 34, 25, 12, 22, 11, 90]
 lista_ordenada = bubble_sort(dados)
 print(f"Lista ordenada: {lista_ordenada}")
+
+def merge_sort(lista):
+    """
+    Implementa o algoritmo Merge Sort para ordenar uma lista.
+    """
+    # Caso base: Se a lista tem 0 ou 1 elemento, ela já está ordenada.
+    if len(lista) <= 1:
+        return lista
+
+    # 1. DIVISÃO: Encontra o ponto médio e divide a lista em duas metades
+    meio = len(lista) // 2
+    metade_esquerda = lista[:meio]
+    metade_direita = lista[meio:]
+
+    # Chamadas recursivas para ordenar as duas metades
+    metade_esquerda = merge_sort(metade_esquerda)
+    metade_direita = merge_sort(metade_direita)
+
+    # 2. CONQUISTA: Combina as metades ordenadas
+    return merge(metade_esquerda, metade_direita)
+
+def merge(esquerda, direita):
+    """
+    Combina duas listas ordenadas em uma única lista ordenada.
+    """
+    resultado = []
+    i = j = 0  # i para 'esquerda', j para 'direita'
+
+    # Itera enquanto houver elementos em ambas as listas
+    while i < len(esquerda) and j < len(direita):
+        # Compara os elementos atuais e adiciona o menor ao resultado
+        if esquerda[i] < direita[j]:
+            resultado.append(esquerda[i])
+            i += 1
+        else:
+            resultado.append(direita[j])
+            j += 1
+
+    # Adiciona os elementos restantes (se houver) de ambas as listas
+    resultado.extend(esquerda[i:])
+    resultado.extend(direita[j:])
+
+    return resultado
+
+# --- Exemplo de Uso ---
+lista_desordenada = [12, 11, 13, 5, 6, 7]
+lista_ordenada = merge_sort(lista_desordenada)
+
+def merge_sort(lista):
+    """
+    Implementa o algoritmo Merge Sort para ordenar uma lista.
+    """
+    # Caso base: Se a lista tem 0 ou 1 elemento, ela já está ordenada.
+    if len(lista) <= 1:
+        return lista
+
+    # 1. DIVISÃO: Encontra o ponto médio e divide a lista em duas metades
+    meio = len(lista) // 2
+    metade_esquerda = lista[:meio]
+    metade_direita = lista[meio:]
+
+    # Chamadas recursivas para ordenar as duas metades
+    metade_esquerda = merge_sort(metade_esquerda)
+    metade_direita = merge_sort(metade_direita)
+
+    # 2. CONQUISTA: Combina as metades ordenadas
+    return merge(metade_esquerda, metade_direita)
+
+def merge(esquerda, direita):
+    """
+    Combina duas listas ordenadas em uma única lista ordenada.
+    """
+    resultado = []
+    i = j = 0  # i para 'esquerda', j para 'direita'
+
+    # Itera enquanto houver elementos em ambas as listas
+    while i < len(esquerda) and j < len(direita):
+        # Compara os elementos atuais e adiciona o menor ao resultado
+        if esquerda[i] < direita[j]:
+            resultado.append(esquerda[i])
+            i += 1
+        else:
+            resultado.append(direita[j])
+            j += 1
+
+    # Adiciona os elementos restantes (se houver) de ambas as listas
+    resultado.extend(esquerda[i:])
+    resultado.extend(direita[j:])
+
+    return resultado
+
+# --- Exemplo de Uso ---
+lista_desordenada = [12, 11, 13, 5, 6, 7]
+lista_ordenada = merge_sort(lista_desordenada)
+
+print(f"Lista Desordenada: {lista_desordenada}")
+print(f"Lista Ordenada (Merge Sort): {lista_ordenada}")
+
