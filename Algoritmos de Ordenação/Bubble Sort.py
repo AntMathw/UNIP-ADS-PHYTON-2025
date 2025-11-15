@@ -230,3 +230,36 @@ lista_ordenada = merge_sort(lista_desordenada)
 print(f"Lista Desordenada: {lista_desordenada}")
 print(f"Lista Ordenada (Merge Sort): {lista_ordenada}")
 
+def bubble_sort(lista):
+    """
+    Implementa o algoritmo Bubble Sort para ordenar uma lista.
+    """
+    n = len(lista)
+
+    # Percorre todos os elementos da lista (iteradas)
+    for i in range(n):
+        # Flag para otimização: se nenhuma troca ocorrer nesta passagem,
+        # a lista está ordenada e podemos parar.
+        troca_ocorreu = False
+
+        # Os últimos i elementos já estão no lugar (já "borbulharam" para o final),
+        # então só precisamos percorrer até n - i - 1
+        for j in range(0, n - i - 1):
+            
+            # Compara o elemento atual com o próximo
+            if lista[j] > lista[j+1]:
+                # Troca os elementos: (swap)
+                lista[j], lista[j+1] = lista[j+1], lista[j]
+                troca_ocorreu = True
+        
+        # Se nenhuma troca ocorreu durante o loop interno, a lista está ordenada
+        if not troca_ocorreu:
+            break
+
+# --- Exemplo de Uso ---
+lista_desordenada = [64, 34, 25, 12, 22, 11, 90]
+print(f"Lista Desordenada: {lista_desordenada}")
+
+bubble_sort(lista_desordenada)
+
+print(f"Lista Ordenada (Bubble Sort): {lista_desordenada}")
