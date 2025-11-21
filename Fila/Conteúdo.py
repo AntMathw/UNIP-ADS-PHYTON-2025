@@ -59,3 +59,53 @@ if fila:
     proximo_na_frente = fila[0]
     print(f"Próximo na fila para ser atendido: {proximo_na_frente}") # Pedro
 print(f"Fila atual: {fila}") # ['Pedro'] (Não foi removido)
+
+from collections import deque
+
+# 1. Criação da Fila
+# 'deque' é uma lista otimizada para inserção e remoção rápida em ambas as extremidades.
+fila_de_pedidos = deque()
+
+print(f"Fila inicial criada: {list(fila_de_pedidos)}")
+print("-" * 30)
+
+# 2. Adicionando itens na Fila (Enqueue - Adicionar à direita/final)
+print("📦 Adicionando pedidos...")
+fila_de_pedidos.append("Pedido 1: Café Expresso")
+fila_de_pedidos.append("Pedido 2: Latte")
+fila_de_pedidos.append("Pedido 3: Cappuccino")
+
+print(f"Fila após adições: {list(fila_de_pedidos)}")
+print("-" * 30)
+
+# 3. Verificando o tamanho
+print(f"Tamanho atual da fila: **{len(fila_de_pedidos)}**")
+print("-" * 30)
+
+# 4. Removendo itens da Fila (Dequeue - Remover da esquerda/início - FIFO)
+print("✅ Processando pedidos (FIFO - First In, First Out)...")
+
+# O primeiro item a entrar na fila é o primeiro a ser removido
+pedido_processado = fila_de_pedidos.popleft() 
+print(f"Pedido processado: **{pedido_processado}**")
+
+pedido_processado = fila_de_pedidos.popleft()
+print(f"Pedido processado: **{pedido_processado}**")
+
+print(f"Fila após processamento: {list(fila_de_pedidos)}")
+print("-" * 30)
+
+# 5. Adicionando mais um item para demonstrar o funcionamento contínuo
+fila_de_pedidos.append("Pedido 4: Chá Gelado")
+print(f"Fila atualizada: {list(fila_de_pedidos)}")
+
+# 6. Processando o item restante
+if fila_de_pedidos:
+    pedido_processado = fila_de_pedidos.popleft()
+    print(f"Pedido processado: **{pedido_processado}**")
+    
+if fila_de_pedidos:
+    pedido_processado = fila_de_pedidos.popleft()
+    print(f"Pedido processado: **{pedido_processado}**")
+
+print(f"Fila no final: {list(fila_de_pedidos)}")
