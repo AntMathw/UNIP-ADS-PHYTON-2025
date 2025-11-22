@@ -111,3 +111,45 @@ print("-" * 30)
 # NoneType (None): Um tipo especial que representa a ausência de valor.
 valor_nulo = None
 print(f"10. Ausência de Valor (NoneType): {valor_nulo} (Tipo: {type(valor_nulo)})")
+
+import math
+
+def calcular_volume_esfera(raio: float) -> float:
+    """
+    Calcula o volume de uma esfera dado o seu raio.
+
+    Args:
+        raio (float): O raio da esfera. Deve ser um número não negativo.
+
+    Returns:
+        float: O volume da esfera.
+    """
+    
+    # 1. Checagem de valor de entrada (opcional, mas boa prática)
+    if raio < 0:
+        raise ValueError("O raio deve ser um número não negativo.")
+
+    # 2. Implementação da fórmula: (4/3) * pi * r^3
+    # math.pi fornece o valor de Pi
+    # O operador ** é usado para potenciação (r**3 = r³)
+    
+    volume = (4 / 3) * math.pi * (raio ** 3)
+    
+    return volume
+
+# --- Exemplos de Uso ---
+
+# Exemplo 1: Raio = 5
+raio_1 = 5
+volume_1 = calcular_volume_esfera(raio_1)
+print(f"O volume de uma esfera com raio {raio_1} é **{volume_1:.2f}**") # Resultado arredondado para 2 casas decimais
+
+# Exemplo 2: Raio = 10
+raio_2 = 10
+volume_2 = calcular_volume_esfera(raio_2)
+print(f"O volume de uma esfera com raio {raio_2} é **{volume_2:.2f}**")
+
+# Exemplo 3: Raio = 1.5
+raio_3 = 1.5
+volume_3 = calcular_volume_esfera(raio_3)
+print(f"O volume de uma esfera com raio {raio_3} é **{volume_3:.2f}**")
