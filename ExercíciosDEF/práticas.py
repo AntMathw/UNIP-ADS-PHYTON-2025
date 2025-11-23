@@ -61,3 +61,120 @@ def calcular_algo(a, b):
 if __name__ == "__main__":
     main()
 
+# -*- coding: utf-8 -*-
+# Importa o módulo 'sys' para permitir sair do programa.
+import sys
+
+# Variável global (a estrutura de dados principal) que armazena todas as tarefas.
+# Em aplicações maiores, isto estaria dentro de uma classe.
+tarefas = []
+
+def mostrar_menu():
+    """
+    Exibe o menu de opções para o usuário.
+    """
+    print("\n" + "="*30)
+    print("  GERENCIADOR DE TAREFAS")
+    print("="*30)
+    print("[1] Adicionar Nova Tarefa")
+    print("[2] Ver Lista de Tarefas")
+    print("[3] Marcar Tarefa como Concluída (Remover)")
+    print("[4] Sair do Programa")
+    print("="*30)
+    
+def adicionar_tarefa(descricao):
+    """
+    Adiciona uma nova tarefa à lista.
+    Args:
+        descricao (str): A descrição textual da tarefa a ser adicionada.
+    """
+    # Verifica se a descrição não está vazia
+    if descricao:
+        tarefas.append(descricao)
+        print(f"\n✅ Tarefa adicionada: '{descricao}'")
+    else:
+        print("\n❌ A descrição da tarefa não pode estar vazia.")
+
+def mostrar_tarefas():
+    """
+    Exibe todas as tarefas pendentes com seu número de índice.
+    """
+    if not tarefas:
+        print("\n📝 Sua lista de tarefas está vazia. Que bom!")
+        return
+
+    print("\n--- LISTA DE TAREFAS PENDENTES ---")
+    # Usa 'enumerate' para obter o índice (i) e o valor (tarefa)
+    for i, tarefa in enumerate(tarefas):
+        # O índice para o usuário é (i + 1) para ser mais amigável
+        print(f"[{i + 1}] {tarefa}")
+    print("---------------------------------")
+
+
+def remover_tarefa(indice):
+    """
+    Remove uma tarefa da lista baseado no índice fornecido pelo usuário.
+    Args:
+        indice (int): O número da tarefa (começando em 1) a ser removida.
+    """
+    # O índice do usuário é 1-based, então convertemos para 0-based
+    indice_real = indice - 1
+
+    # Validação para garantir que o índice está dentro dos limites da lista
+    if 0 <= indice_real < len(tarefas):
+        # O método pop(indice) remove e retorna o elemento naquela posição
+        tarefa_concluida = tarefas.pop(indice_real)
+        print(f"\n🎉 Tarefa CONCLUÍDA e removida: '{tarefa_concluida}'")
+    else:
+        print(f"\n❌ Erro: Índice '{indice}' inválido. Verifique a lista novamente.")
+
+def main():
+    """
+    Função principal que controla o fluxo do programa.
+    """
+    while True:
+        mostrar_menu()
+        
+        # Pede a entrada do usuário e trata possíveis erros de digitação (ex: letras)
+        try:
+            escolha = int(input("Escolha uma opção: "))
+        except ValueError:
+            print("\n⚠️ Entrada inválida. Por favor, digite um número de 1 a 4.")
+            continue
+
+        if escolha == 1:
+            # Opção 1: Adicionar Tarefa
+            nova_tarefa = input("Digite a descrição da nova tarefa: ")
+            adicionar_tarefa(nova_tarefa.strip()) # strip() remove espaços em branco extras
+        
+        elif escolha == 2:
+            # Opção 2: Ver Tarefas
+            mostrar_tarefas()
+
+        elif escolha == 3:
+            # Opção 3: Remover Tarefa (Marcar como Concluída)
+            mostrar_tarefas()
+            try:
+                if tarefas:
+                    num_tarefa = int(input("Digite o NÚMERO da tarefa concluída para remover: "))
+                    remover_tarefa(num_tarefa)
+                else:
+                    print("Não há tarefas para remover.")
+            except ValueError:
+                print("\n⚠️ Entrada inválida. Por favor, digite o número da tarefa.")
+
+        elif escolha == 4:
+            # Opção 4: Sair
+            print("\n👋 Obrigado por usar o Gerenciador de Tarefas. Até mais!")
+            sys.exit(0) # Sai do programa
+        
+        else:
+            # Tratamento para números fora do menu (ex: 5, 0, etc.)
+            print("\n❌ Opção não reconhecida. Por favor, escolha uma opção válida do menu.")
+
+
+# Ponto de entrada do programa.
+# Esta é a estrutura padrão para garantir que a função 'main' seja chamada apenas
+# quando o arquivo for executado diretamente, e não quando for importado.
+if __name__ == "__main__":
+    main()
