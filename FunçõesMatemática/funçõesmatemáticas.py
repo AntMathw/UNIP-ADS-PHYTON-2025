@@ -153,3 +153,10 @@ print(f"O volume de uma esfera com raio {raio_2} é **{volume_2:.2f}**")
 raio_3 = 1.5
 volume_3 = calcular_volume_esfera(raio_3)
 print(f"O volume de uma esfera com raio {raio_3} é **{volume_3:.2f}**")
+
+import math
+
+numero = 49
+resultado = math.sqrt(numero)
+
+print(f"A raiz quadrada de {numero} é {resultado}")
