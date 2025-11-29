@@ -171,10 +171,44 @@ def main():
         else:
             # Tratamento para números fora do menu (ex: 5, 0, etc.)
             print("\n❌ Opção não reconhecida. Por favor, escolha uma opção válida do menu.")
+def dividir_conta():
+    print("--- Calculadora de Racha Conta ---")
 
+    try:
+        # 1. Entradas do usuário
+        valor_conta = float(input("Qual o valor total da conta? R$ "))
+        porcentagem_garcom = int(input("Qual a % do garçom? (ex: 10, 12, 15): "))
+        numero_pessoas = int(input("Quantas pessoas vão dividir? "))
+
+        # 2. Multiplicação: Calcular o valor do serviço
+        # Convertemos a porcentagem (ex: 10) para decimal (0.10) multiplicando
+        valor_servico = valor_conta * (porcentagem_garcom / 100)
+        
+        # Somar tudo
+        total_final = valor_conta + valor_servico
+
+        # 3. Divisão: Calcular quanto cada um paga
+        valor_por_pessoa = total_final / numero_pessoas
+
+        # 4. Exibir resultados
+        print("\n--- Resultado ---")
+        print(f"Valor do serviço ({porcentagem_garcom}%): R$ {valor_servico:.2f}")
+        print(f"Total com serviço: R$ {total_final:.2f}")
+        print("-" * 30) # Multiplicação de strings (repete o traço 30 vezes)
+        print(f"CADA UM PAGA: R$ {valor_por_pessoa:.2f}")
+
+    except ZeroDivisionError:
+        print("\nErro: O número de pessoas não pode ser zero!")
+    except ValueError:
+        print("\nErro: Por favor, digite apenas números válidos.")
+
+# Executa o programa
+if __name__ == "__main__":
+    dividir_conta()
 
 # Ponto de entrada do programa.
 # Esta é a estrutura padrão para garantir que a função 'main' seja chamada apenas
 # quando o arquivo for executado diretamente, e não quando for importado.
 if __name__ == "__main__":
     main()
+
