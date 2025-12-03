@@ -189,3 +189,41 @@ if minha_pilha:
     print(f"Pilha após esvaziar: {minha_pilha}")
 
 print(f"A pilha está vazia? {'Sim' if not minha_pilha else 'Não'}")
+
+# 1. Criação da Pilha como uma Lista
+pilha = []
+
+# 2. Operação PUSH (Empilhar): Adicionando elementos
+print("--- PUSH (Empilhar) ---")
+pilha.append(10)
+pilha.append(20)
+pilha.append(30)
+print(f"Pilha atual após PUSH: {pilha}")  # Saída: [10, 20, 30]
+
+# 3. Operação PEEK (Ver o Topo): Acessando o último elemento
+if pilha:
+    topo = pilha[-1]
+    print(f"\n--- PEEK (Ver Topo) ---")
+    print(f"Elemento no topo (sem remover): {topo}") # Saída: 30
+    print(f"Pilha após PEEK: {pilha}") # Saída: [10, 20, 30]
+
+# 4. Operação POP (Desempilhar): Removendo elementos
+print(f"\n--- POP (Desempilhar) ---")
+item_removido_1 = pilha.pop()
+print(f"Item removido (POP): {item_removido_1}") # Saída: 30
+print(f"Pilha atual: {pilha}") # Saída: [10, 20]
+
+item_removido_2 = pilha.pop()
+print(f"Item removido (POP): {item_removido_2}") # Saída: 20
+print(f"Pilha atual: {pilha}") # Saída: [10]
+
+# 5. Operação IS EMPTY (Verificar se está vazia)
+print(f"\n--- IS EMPTY (Verificar Vazia) ---")
+print(f"A pilha está vazia? {len(pilha) == 0}") # Saída: False
+
+pilha.pop() # Remove o último elemento (10)
+print(f"Pilha após último POP: {pilha}") # Saída: []
+print(f"A pilha está vazia? {len(pilha) == 0}") # Saída: True
+
+# Tentar POP em uma pilha vazia causará um erro (IndexError)
+# item_errado = pilha.pop()
