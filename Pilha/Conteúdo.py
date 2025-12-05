@@ -227,3 +227,50 @@ print(f"A pilha está vazia? {len(pilha) == 0}") # Saída: True
 
 # Tentar POP em uma pilha vazia causará um erro (IndexError)
 # item_errado = pilha.pop()
+
+class Pilha:
+    def __init__(self):
+        # O construtor inicializa a pilha como uma lista vazia
+        self._items = []
+
+    def is_empty(self):
+        # Retorna True se a lista estiver vazia
+        return len(self._items) == 0
+
+    def push(self, item):
+        # Adiciona um item ao topo (fim) da lista
+        self._items.append(item)
+        print(f"PUSH: '{item}' adicionado.")
+
+    def pop(self):
+        # Remove e retorna o item do topo (fim)
+        if not self.is_empty():
+            return self._items.pop()
+        else:
+            return "Erro: Pilha vazia!" # Mensagem de erro
+
+    def peek(self):
+        # Retorna o item do topo sem removê-lo
+        if not self.is_empty():
+            return self._items[-1]
+        else:
+            return "Erro: Pilha vazia!"
+
+    def size(self):
+        # Retorna o número de itens na pilha
+        return len(self._items)
+
+# Exemplo de uso da classe
+print("\n--- Exemplo com a Classe Pilha ---")
+minha_pilha = Pilha()
+minha_pilha.push("A")
+minha_pilha.push("B")
+minha_pilha.push("C")
+
+print(f"Tamanho da pilha: {minha_pilha.size()}") # Saída: 3
+print(f"Elemento no topo (PEEK): {minha_pilha.peek()}") # Saída: C
+print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: C
+print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: B
+print(f"A pilha está vazia? {minha_pilha.is_empty()}") # Saída: False
+print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: A
+print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: Erro: Pilha vazia!
