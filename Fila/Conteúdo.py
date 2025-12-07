@@ -109,3 +109,74 @@ if fila_de_pedidos:
     print(f"Pedido processado: **{pedido_processado}**")
 
 print(f"Fila no final: {list(fila_de_pedidos)}")
+
+from collections import deque
+
+class FilaDeAtendimento:
+    def __init__(self):
+        # Inicializa a fila usando deque para alta performance
+        self.fila = deque()
+
+    def entrar(self, nome):
+        """Adiciona uma pessoa ao final da fila (Enqueue)"""
+        self.fila.append(nome)
+        print(f"-> {nome} entrou na fila.")
+
+    def atender(self):
+        """Remove e retorna a primeira pessoa da fila (Dequeue)"""
+        if not self.esta_vazia():
+            pessoa = self.fila.popleft() # popleft remove do início
+            print(f"✅ Atendendo agora: {pessoa}")
+            return pessoa
+        else:
+            print("⚠️ A fila está vazia! Ninguém para atender.")
+            return None
+
+    def proximo_da_vez(self):
+        """Mostra quem é o primeiro sem remover (Peek)"""
+        if not self.esta_vazia():
+            return self.fila[0]
+        return "Ninguém"
+
+    def tamanho(self):
+        """Retorna o número de pessoas na fila"""
+        return len(self.fila)
+
+    def esta_vazia(self):
+        """Verifica se a fila está vazia"""
+        return len(self.fila) == 0
+
+    def mostrar_fila(self):
+        """Exibe o estado atual da fila"""
+        print(f"📋 Fila atual: {list(self.fila)}")
+
+# --- Testando o Programa ---
+
+if __name__ == "__main__":
+    # 1. Criar a fila
+    minha_fila = FilaDeAtendimento()
+    print("--- Início do Expediente ---\n")
+
+    # 2. Pessoas chegando (Enqueue)
+    minha_fila.entrar("Ana")
+    minha_fila.entrar("Carlos")
+    minha_fila.entrar("Beatriz")
+    
+    print()
+    minha_fila.mostrar_fila()
+    print(f"Total na fila: {minha_fila.tamanho()}")
+    print("-" * 30)
+
+    # 3. Atendendo o primeiro (Dequeue - deve ser a Ana)
+    minha_fila.atender()
+    
+    # 4. Verificando quem é o próximo
+    print(f"O próximo da vez é: {minha_fila.proximo_da_vez()}")
+    print("-" * 30)
+
+    # 5. Atendendo o restante
+    minha_fila.atender()
+    minha_fila.atender()
+    
+    # 6. Tentando atender com fila vazia
+    minha_fila.atender()
