@@ -4,7 +4,7 @@
 def main():
 
     fila = []
-    print(f'Fila vazia {fila}')
+    print(f'Fila vazia {fila}') se
 
     fila.append(3)
     print(fila)
@@ -180,3 +180,62 @@ if __name__ == "__main__":
     
     # 6. Tentando atender com fila vazia
     minha_fila.atender()
+
+from collections import deque
+
+class FilaFIFO:
+    def __init__(self):
+        # Inicializa a fila usando deque para alta performance
+        self._dados = deque()
+
+    def entrar(self, item):
+        """Adiciona um item ao final da fila (Enqueue)"""
+        self._dados.append(item)
+        print(f"Entrou: {item}")
+
+    def sair(self):
+        """Remove e retorna o item do início da fila (Dequeue)"""
+        if self.vazia():
+            return "A fila está vazia!"
+        
+        item = self._dados.popleft() # popleft é o segredo do FIFO eficiente
+        print(f"Saiu: {item}")
+        return item
+
+    def ver_primeiro(self):
+        """Olha o primeiro da fila sem remover (Peek)"""
+        if self.vazia():
+            return None
+        return self._dados[0]
+
+    def vazia(self):
+        """Verifica se a fila está vazia"""
+        return len(self._dados) == 0
+
+    def tamanho(self):
+        """Retorna o tamanho da fila"""
+        return len(self._dados)
+
+    def __str__(self):
+        return f"Estado atual da fila: {list(self._dados)}"
+
+# --- Testando a Fila ---
+
+# 1. Criar a fila
+minha_fila = FilaFIFO()
+
+# 2. Adicionar elementos (O primeiro é "Documento A")
+minha_fila.entrar("Documento A")
+minha_fila.entrar("Documento B")
+minha_fila.entrar("Documento C")
+
+print("-" * 20)
+print(minha_fila) # Mostra: ['Documento A', 'Documento B', 'Documento C']
+print("-" * 20)
+
+# 3. Remover elementos (Deve remover "Documento A" primeiro)
+minha_fila.sair() 
+print(minha_fila) # Mostra: ['Documento B', 'Documento C']
+
+# 4. Verificar o próximo
+print(f"Próximo da fila: {minha_fila.ver_primeiro()}")
