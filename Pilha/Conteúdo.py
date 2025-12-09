@@ -274,3 +274,39 @@ print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: B
 print(f"A pilha está vazia? {minha_pilha.is_empty()}") # Saída: False
 print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: A
 print(f"Desempilhando (POP): {minha_pilha.pop()}") # Saída: Erro: Pilha vazia!
+
+class Pilha:
+    def __init__(self):
+        """Inicializa uma pilha vazia."""
+        self.itens = []
+
+    def vazia(self):
+        """Retorna True se a pilha estiver vazia, senão False."""
+        return len(self.itens) == 0
+
+    def empilhar(self, item):
+        """Adiciona um item ao topo da pilha (Push)."""
+        self.itens.append(item)
+        print(f"Item '{item}' empilhado.")
+
+    def desempilhar(self):
+        """Remove e retorna o item do topo da pilha (Pop)."""
+        if self.vazia():
+            print("A pilha está vazia! Não é possível desempilhar.")
+            return None
+        return self.itens.pop()
+
+    def topo(self):
+        """Retorna o item do topo sem removê-lo (Peek)."""
+        if self.vazia():
+            print("A pilha está vazia!")
+            return None
+        return self.itens[-1]
+
+    def tamanho(self):
+        """Retorna o número de itens na pilha."""
+        return len(self.itens)
+
+    def __str__(self):
+        """Representação em string da pilha para visualização."""
+        return str(self.itens)
