@@ -1,4 +1,4 @@
-# Arquivo: manipulacao_string.py
+se# Arquivo: manipulacao_string.py
 
 # 1. Definição da String Base
 texto_original = "Python é Incrível para manipulação de texto e dados."
@@ -124,3 +124,72 @@ except FileNotFoundError:
     print(f"\n❌ Erro: O arquivo '{nome_arquivo}' não foi encontrado.")
 except IOError as e:
     print(f"\n❌ Erro ao ler o arquivo: {e}")
+
+from collections import Counter
+import re # Biblioteca para expressões regulares (usada para limpeza)
+
+def contar_frequencia_palavras(nome_arquivo):
+    """
+    Lê um arquivo de texto, limpa as palavras e conta a frequência de cada uma.
+    """
+    try:
+        # 1. Leitura Segura do Arquivo (Modo 'r' para leitura)
+        # O 'with' garante que o arquivo seja fechado automaticamente, mesmo que ocorra um erro.
+        with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
+            conteudo = arquivo.read()
+    
+    except FileNotFoundError:
+        print(f"ERRO: O arquivo '{nome_arquivo}' não foi encontrado.")
+        return
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado durante a leitura: {e}")
+        return
+
+    # 2. Processamento do Conteúdo
+    
+    # 2.1. Limpeza de Pontuação
+    # Substitui qualquer caractere que não seja letra, número ou espaço por um espaço.
+    # Isso remove pontos, vírgulas, etc.
+    conteudo_limpo = re.sub(r'[^a-zA-Z0-9\s]', ' ', conteudo)
+    
+    # 2.2. Padronização e Tokenização
+    # Converte tudo para minúsculas (para tratar "Python" e "python" como a mesma palavra)
+    # e divide a string em uma lista de palavras (tokens).
+    palavras = conteudo_limpo.lower().split()
+    
+    # 3. Contagem de Frequência
+    # O Counter faz a contagem automaticamente
+    contagem_palavras = Counter(palavras)
+    
+    # 4. Saída do Resultado
+    print(f"\n--- Análise de Frequência de Palavras no Arquivo '{nome_arquivo}' ---")
+    
+    # Pega as 10 palavras mais comuns
+    mais_comuns = contagem_palavras.most_common(10)
+    
+    for palavra, contagem in mais_comuns:
+        # Usamos f-strings para formatação limpa
+        print(f"'{palavra}': {contagem} vez(es)")
+        
+    print("--------------------------------------------------------------------")
+    print(f"Total de palavras únicas encontradas: {len(contagem_palavras)}")
+
+# --- Execução Principal ---
+if __name__ == "__main__":
+    # Certifique-se de que este arquivo existe no mesmo diretório
+    nome_do_arquivo = "texto_exemplo.txt" 
+    
+    # Cria o arquivo de exemplo se ele não existir
+    try:
+        with open(nome_do_arquivo, 'w', encoding='utf-8') as f:
+            f.write("Python é uma linguagem de programação.\n")
+            f.write("Programação com Python é muito produtiva,\n")
+            f.write("e Python é excelente.\n")
+            f.write("O Python é o melhor Python.")
+        print(f"Arquivo '{nome_do_arquivo}' criado para o teste.")
+        
+    except Exception as e:
+        print(f"Não foi possível criar o arquivo de teste: {e}")
+
+    # Roda a função de análise
+    contar_frequencia_palavras(nome_do_arquivo)
