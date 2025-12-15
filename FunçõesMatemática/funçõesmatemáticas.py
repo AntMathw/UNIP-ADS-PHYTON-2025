@@ -1,4 +1,4 @@
-#Tipos primitivos
+#Tipos primitivos see
 
 valor = float(input('Digite um valor: '))
 n = float(input('Digite um valor real: '))
@@ -160,3 +160,56 @@ numero = 49
 resultado = math.sqrt(numero)
 
 print(f"A raiz quadrada de {numero} é {resultado}")
+
+def soma_flexivel(*numeros, fator_escala=1):
+    """
+    Calcula a soma de uma quantidade arbitrária de números e
+    multiplica o resultado por um fator de escala opcional.
+
+    Args:
+        *numeros (float ou int): Os números que serão somados.
+        fator_escala (float ou int, opcional): Fator para multiplicar
+                                                o resultado final. Padrão é 1.
+
+    Returns:
+        float: O resultado da soma multiplicado pelo fator de escala.
+    """
+    # 1. Verificar se há números para somar
+    if not numeros:
+        return 0
+
+    # 2. Calcular a soma de todos os números
+    soma_total = sum(numeros)
+
+    # 3. Aplicar o fator de escala (multiplicação)
+    resultado_final = soma_total * fator_escala
+
+    return resultado_final
+
+# --- Exemplos de Uso ---
+
+# Exemplo 1: Soma de 3 números simples (fator padrão = 1)
+print("--- Exemplo 1 ---")
+resultado1 = soma_flexivel(5, 10, 2)
+print(f"Soma de (5, 10, 2): {resultado1}")
+# Saída esperada: 17
+
+# Exemplo 2: Soma de 5 números com fator de escala 2
+print("\n--- Exemplo 2 ---")
+resultado2 = soma_flexivel(1, 2, 3, 4, 5, fator_escala=2)
+# Soma (1+2+3+4+5) = 15. Multiplica por 2 = 30
+print(f"Soma de (1, 2, 3, 4, 5) * 2: {resultado2}")
+# Saída esperada: 30
+
+# Exemplo 3: Soma de números com vírgula (floats) e fator de escala decimal
+print("\n--- Exemplo 3 ---")
+resultado3 = soma_flexivel(0.5, 1.5, 3.0, fator_escala=1.1)
+# Soma (0.5+1.5+3.0) = 5.0. Multiplica por 1.1 = 5.5
+print(f"Soma de (0.5, 1.5, 3.0) * 1.1: {resultado3}")
+# Saída esperada: 5.5
+
+# Exemplo 4: Chamada sem argumentos (retorna 0)
+print("\n--- Exemplo 4 ---")
+resultado4 = soma_flexivel()
+print(f"Soma sem números: {resultado4}")
+# Saída esperada: 0
