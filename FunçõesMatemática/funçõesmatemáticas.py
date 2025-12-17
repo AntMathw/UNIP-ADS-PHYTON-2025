@@ -213,3 +213,132 @@ print("\n--- Exemplo 4 ---")
 resultado4 = soma_flexivel()
 print(f"Soma sem números: {resultado4}")
 # Saída esperada: 0
+
+# -*- coding: utf-8 -*-
+
+class SubtratorComplexo:
+    """
+    Implementa um algoritmo customizado para subtrair dois números inteiros
+    positivos representados como strings, simulando a operação "dígito por dígito"
+    com lógica de empréstimo (borrow).
+    """
+
+    def _valida_entrada(self, num_str):
+        """Valida se a string contém apenas dígitos."""
+        if not num_str.isdigit():
+            raise ValueError(f"O valor '{num_str}' deve conter apenas dígitos numéricos.")
+        return num_str.lstrip('0') or '0'
+
+    def _subtrair_logica(self, maior_str, menor_str):
+        """
+        Executa a subtração dígito por dígito (maior - menor).
+        Ambos os números são garantidos como positivos e o maior já está na frente.
+        """
+        resultado = []
+        emprestimo = 0 # O borrow
+        
+        # Inverte as strings para iterar dos dígitos menos significativos (unidades)
+        maior_rev = maior_str[::-1]
+        menor_rev = menor_str[::-1]
+        
+        len_maior = len(maior_str)
+        len_menor = len(menor_str)
+
+        for i in range(len_maior):
+            # Obtém o dígito atual do número maior e subtrai o empréstimo
+            digito_maior = int(maior_rev[i]) - emprestimo
+            
+            # Obtém o dígito do número menor (ou 0 se o menor já terminou)
+            digito_menor = int(menor_rev[i]) if i < len_menor else 0
+            
+            # Reseta o empréstimo para a próxima iteração
+            emprestimo = 0
+
+            # Verifica se é necessário um empréstimo
+            if digito_maior < digito_menor:
+                emprestimo = 1
+                # Empréstimo: adiciona 10 ao dígito atual
+                digito_maior += 10
+            
+            # Calcula o resultado do dígito e adiciona à lista
+            diferenca = digito_maior - digito_menor
+            resultado.append(str(diferenca))
+
+        # Reverte o resultado e remove zeros à esquerda
+        resultado_final = "".join(resultado[::-1]).lstrip('0')
+        
+        # Se o resultado for uma string vazia (ex: 10 - 10), retorna "0"
+        return resultado_final or "0"
+
+    def subtrair(self, num1_str, num2_str):
+        """
+        Função principal que gerencia a subtração, validando entradas e magnitudes.
+        """
+        print(f"\n--- Processando Subtração Complexa ---")
+        
+        try:
+            # 1. Validação e remoção de zeros à esquerda
+            val1 = self._valida_entrada(num1_str)
+            val2 = self._valida_entrada(num2_str)
+            
+            # 2. Converte para inteiro (apenas para comparação de magnitude)
+            num1 = int(val1)
+            num2 = int(val2)
+            
+            # 3. Determina a magnitude e o sinal
+            e_negativo = False
+            
+            if num1 >= num2:
+                maior_str = val1
+                menor_str = val2
+            else:
+                maior_str = val2
+                menor_str = val1
+                e_negativo = True # O resultado deve ser negativo
+                
+            # 4. Executa a lógica de subtração customizada
+            resultado = self._subtrair_logica(maior_str, menor_str)
+            
+            # 5. Adiciona o sinal se necessário
+            if e_negativo and resultado != '0':
+                resultado = "-" + resultado
+            
+            return resultado
+
+        except ValueError as e:
+            return f"ERRO na entrada: {e}"
+        except Exception as e:
+            return f"ERRO inesperado: {e}"
+
+# --- Exemplo de Uso ---
+
+def main():
+    subtrator = SubtratorComplexo()
+    
+    # Exemplo 1: Subtração padrão
+    n1_ex1 = "987654321"
+    n2_ex1 = "123456789"
+    res1 = subtrator.subtrair(n1_ex1, n2_ex1)
+    print(f"Subtração: {n1_ex1} - {n2_ex1} = {res1}")
+
+    # Exemplo 2: O resultado é negativo (o algoritmo inverte e adiciona o sinal)
+    n1_ex2 = "100"
+    n2_ex2 = "1000"
+    res2 = subtrator.subtrair(n1_ex2, n2_ex2)
+    print(f"Subtração: {n1_ex2} - {n2_ex2} = {res2}")
+    
+    # Exemplo 3: Subtração com múltiplos empréstimos
+    n1_ex3 = "100000"
+    n2_ex3 = "1"
+    res3 = subtrator.subtrair(n1_ex3, n2_ex3)
+    print(f"Subtração: {n1_ex3} - {n2_ex3} = {res3}")
+    
+    # Exemplo 4: Entrada com erro (não-dígitos)
+    n1_ex4 = "123A"
+    n2_ex4 = "100"
+    res4 = subtrator.subtrair(n1_ex4, n2_ex4)
+    print(f"Subtração: {n1_ex4} - {n2_ex4} = {res4}")
+
+# Ponto de entrada
+if __name__ == "__main__":
+    main()
