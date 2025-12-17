@@ -342,3 +342,116 @@ def main():
 # Ponto de entrada
 if __name__ == "__main__":
     main()
+
+class SomadorComplexo:
+    """
+    Implementa um algoritmo customizado para somar dois números inteiros
+    positivos representados como strings, simulando a operação "dígito por dígito"
+    com lógica de transporte (carry).
+    """
+
+    def _valida_entrada(self, num_str):
+        """Valida se a string contém apenas dígitos."""
+        if not num_str.isdigit():
+            raise ValueError(f"O valor '{num_str}' deve conter apenas dígitos numéricos.")
+        # Retorna a string sem zeros à esquerda, ou '0' se for zero puro
+        return num_str.lstrip('0') or '0'
+
+    def _somar_logica(self, num1_str, num2_str):
+        """
+        Executa a adição dígito por dígito, gerenciando o carry (vai um).
+        """
+        resultado = []
+        transporte = 0  # O carry (vai um)
+        
+        # Inverte as strings para iterar dos dígitos menos significativos (unidades)
+        n1_rev = num1_str[::-1]
+        n2_rev = num2_str[::-1]
+        
+        len_n1 = len(num1_str)
+        len_n2 = len(num2_str)
+        max_len = max(len_n1, len_n2)
+
+        for i in range(max_len):
+            # Obtém o dígito atual de num1 (ou 0 se num1 for mais curto)
+            digito1 = int(n1_rev[i]) if i < len_n1 else 0
+            
+            # Obtém o dígito atual de num2 (ou 0 se num2 for mais curto)
+            digito2 = int(n2_rev[i]) if i < len_n2 else 0
+            
+            # Soma os dígitos atuais mais o transporte anterior
+            soma = digito1 + digito2 + transporte
+            
+            # O novo dígito do resultado é o resto da divisão por 10
+            novo_digito = soma % 10
+            
+            # O novo transporte (carry) é o quociente da divisão por 10
+            transporte = soma // 10
+            
+            # Adiciona o novo dígito à lista de resultados
+            resultado.append(str(novo_digito))
+
+        # Se houver um transporte restante após o último loop (ex: 99 + 1 = 100)
+        if transporte > 0:
+            resultado.append(str(transporte))
+
+        # Reverte o resultado para a ordem correta
+        resultado_final = "".join(resultado[::-1])
+        
+        # Como as entradas são validadas como positivas, não precisamos nos preocupar com zeros à esquerda no final,
+        # a menos que ambos os números fossem "0", mas '0' é garantido.
+        return resultado_final
+
+    def somar(self, num1_str, num2_str):
+        """
+        Função principal que gerencia a adição, validando entradas.
+        """
+        print(f"\n--- Processando Adição Complexa ---")
+        
+        try:
+            # 1. Validação e remoção de zeros à esquerda
+            val1 = self._valida_entrada(num1_str)
+            val2 = self._valida_entrada(num2_str)
+            
+            # 2. Executa a lógica de adição customizada
+            resultado = self._somar_logica(val1, val2)
+            
+            return resultado
+
+        except ValueError as e:
+            return f"ERRO na entrada: {e}"
+        except Exception as e:
+            return f"ERRO inesperado: {e}"
+
+# --- Exemplo de Uso ---
+
+def main():
+    somador = SomadorComplexo()
+    
+    # Exemplo 1: Adição simples
+    n1_ex1 = "12345"
+    n2_ex1 = "6789"
+    res1 = somador.somar(n1_ex1, n2_ex1)
+    print(f"Adição: {n1_ex1} + {n2_ex1} = {res1}")
+
+    # Exemplo 2: Adição com carry (vai um) na última posição
+    n1_ex2 = "99"
+    n2_ex2 = "1"
+    res2 = somador.somar(n1_ex2, n2_ex2)
+    print(f"Adição: {n1_ex2} + {n2_ex2} = {res2}")
+    
+    # Exemplo 3: Adição de números muito grandes (demonstrando precisão)
+    n1_ex3 = "1234567890123456789012345"
+    n2_ex3 = "9876543210987654321098765"
+    res3 = somador.somar(n1_ex3, n2_ex3)
+    print(f"Adição: {n1_ex3} + {n2_ex3} = {res3}")
+    
+    # Exemplo 4: Entrada com erro (não-dígitos)
+    n1_ex4 = "456B"
+    n2_ex4 = "100"
+    res4 = somador.somar(n1_ex4, n2_ex4)
+    print(f"Adição: {n1_ex4} + {n2_ex4} = {res4}")
+
+# Ponto de entrada
+if __name__ == "__main__":
+    main()
