@@ -455,3 +455,13 @@ def main():
 # Ponto de entrada
 if __name__ == "__main__":
     main()
+
+import math
+
+# Definindo o número
+numero = 49
+
+# Calculando a raiz
+resultado = math.sqrt(numero)
+
+print(f"A raiz quadrada de {numero} é {resultado}")
