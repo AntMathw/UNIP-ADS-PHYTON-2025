@@ -310,3 +310,66 @@ class Pilha:
     def __str__(self):
         """Representação em string da pilha para visualização."""
         return str(self.itens)
+
+class Pilha:
+    """
+    Representa uma estrutura de dados de Pilha.
+    Utilizamos uma lista interna onde o final da lista representa o topo da pilha.
+    """
+    def __init__(self):
+        # Inicializa uma lista vazia para armazenar os elementos
+        self.itens = []
+
+    def esta_vazia(self):
+        """Verifica se a pilha está vazia."""
+        return len(self.itens) == 0
+
+    def empilhar(self, item):
+        """Adiciona um item ao topo da pilha (push)."""
+        self.itens.append(item)
+        print(f"EMPILHADO: '{item}'")
+
+    def desempilhar(self):
+        """Remove e retorna o item do topo da pilha (pop)."""
+        if self.esta_vazia():
+            return "Erro: A pilha está vazia. Não é possível desempilhar."
+        
+        item_removido = self.itens.pop()
+        print(f"DESEMPILHADO: '{item_removido}'")
+        return item_removido
+
+    def espiar(self):
+        """Retorna o item no topo da pilha sem o remover (peek)."""
+        if self.esta_vazia():
+            return "A pilha está vazia."
+        # Retorna o último elemento da lista
+        return self.itens[-1]
+
+    def tamanho(self):
+        """Retorna a quantidade de elementos na pilha."""
+        return len(self.itens)
+
+# --- Exemplo de Utilização ---
+
+# 1. Criar uma nova pilha (ex: histórico de navegação ou desfazer texto)
+pilha_acoes = Pilha()
+print("--- Simulando Histórico de Ações ---")
+
+# 2. Adicionar ações (Empilhar)
+pilha_acoes.empilhar("Abrir página inicial")
+pilha_acoes.empilhar("Clicar em Perfil")
+pilha_acoes.empilhar("Editar foto")
+
+# 3. Verificar o topo
+print(f"\nAção atual no topo: {pilha_acoes.espiar()}")
+
+# 4. Remover a última ação (Desempilhar - Comando 'Desfazer')
+print("\n--- Utilizando o comando 'Desfazer' ---")
+pilha_acoes.desempilhar()
+
+# 5. Adicionar nova ação
+pilha_acoes.empilhar("Ver notificações")
+
+# 6. Mostrar estado final
+print(f"\nTotal de ações na pilha: {pilha_acoes.tamanho()}")
+print(f"Próxima ação a ser removida: {pilha_acoes.espiar()}")
