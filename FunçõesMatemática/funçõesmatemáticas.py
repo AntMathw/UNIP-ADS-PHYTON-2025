@@ -465,3 +465,27 @@ numero = 49
 resultado = math.sqrt(numero)
 
 print(f"A raiz quadrada de {numero} é {resultado}")
+
+# 1. Entrada de dados (Input)
+print("--- Calculadora de IMC ---")
+nome = input("Qual é o seu nome? ")
+peso = float(input("Digite o seu peso (em kg): "))
+altura = float(input("Digite a sua altura (em metros): "))
+
+# 2. Processamento (Cálculo)
+# O operador ** significa potência (elevado ao quadrado)
+imc = peso / (altura ** 2)
+
+# 3. Saída de dados e Lógica (Output e If/Else)
+print(f"\nOlá, {nome}!")
+print(f"Seu IMC é: {imc:.2f}") # O :.2f limita a 2 casas decimais
+
+# Verifica a categoria do IMC
+if imc < 18.5:
+    print("Classificação: Abaixo do peso.")
+elif imc < 24.9:
+    print("Classificação: Peso normal.")
+elif imc < 29.9:
+    print("Classificação: Sobrepeso.")
+else:
+    print("Classificação: Obesidade.")
