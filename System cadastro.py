@@ -1,3 +1,5 @@
+#MATERIAL DE ESTUDOS EM FASE DE DESENVOLVIMENTO...
+
 import time
 import sys
 
