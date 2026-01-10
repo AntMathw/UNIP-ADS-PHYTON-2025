@@ -291,6 +291,28 @@ else:
     # Executado se 'idade' for menor que 16
     print("Você tem menos de 16 anos. Você não pode votar nem dirigir.")
 
+# Simples sistema de verificação de categoria de usuário
+
+print("--- SISTEMA DE CATEGORIA ADS ---")
+
+# Recebe a entrada do usuário e converte para número inteiro (int)
+idade = int(input("Digite a sua idade: "))
+
+# Estrutura condicional IF, ELIF e ELSE
+if idade < 18:
+    print("Categoria: Estudante Júnior.")
+    print("Acesso limitado ao laboratório básico.")
+
+elif idade >= 18 and idade < 60:
+    print("Categoria: Desenvolvedor Pleno.")
+    print("Acesso total aos servidores.")
+
+else:
+    print("Categoria: Desenvolvedor Sênior (Master).")
+    print("Acesso total e permissões de administrador.")
+
+print("\nVerificação finalizada.")
+
 
 
 
