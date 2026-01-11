@@ -258,3 +258,6 @@ if __name__ == "__main__":
     # Podemos reutilizar a função com um valor diferente!
     # contagem_regressiva(3)
 
+# O range(5) cria uma sequência de 0 até 4
+for i in range(5):
+    print(f"Repetição número: {i}")
