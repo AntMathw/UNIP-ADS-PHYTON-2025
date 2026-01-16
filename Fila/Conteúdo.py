@@ -239,3 +239,62 @@ print(minha_fila) # Mostra: ['Documento B', 'Documento C']
 
 # 4. Verificar o próximo
 print(f"Próximo da fila: {minha_fila.ver_primeiro()}")
+
+
+from collections import deque
+
+class Fila:
+    """
+    Representa uma estrutura de dados de Fila (Queue).
+    Princípio FIFO: First-In, First-Out.
+    """
+    def __init__(self):
+        # Utilizamos o deque para uma remoção eficiente do início da fila
+        self.itens = deque()
+
+    def esta_vazia(self):
+        """Verifica se a fila está vazia."""
+        return len(self.itens) == 0
+
+    def entrar(self, item):
+        """Adiciona um item ao final da fila (enqueue)."""
+        self.itens.append(item)
+        print(f"ENTROU: '{item}'")
+
+    def sair(self):
+        """Remove e retorna o primeiro item da fila (dequeue)."""
+        if self.esta_vazia():
+            return "Erro: A fila está vazia."
+        
+        item_removido = self.itens.popleft()
+        print(f"SAIU: '{item_removido}'")
+        return item_removido
+
+    def primeiro(self):
+        """Mostra quem é o primeiro da fila sem o remover."""
+        if self.esta_vazia():
+            return "A fila está vazia."
+        return self.itens[0]
+
+    def tamanho(self):
+        """Retorna o número de pessoas/itens na fila."""
+        return len(self.itens)
+
+# --- Exemplo de Uso (Simulando uma Fila de Banco) ---
+
+fila_banco = Fila()
+
+print("--- Chegada de Clientes ---")
+fila_banco.entrar("João")
+fila_banco.entrar("Maria")
+fila_banco.entrar("José")
+
+print(f"\nQuem é o primeiro da fila? {fila_banco.primeiro()}")
+print(f"Tamanho da fila: {fila_banco.tamanho()}")
+
+print("\n--- Atendimento ---")
+fila_banco.sair() # João sai
+fila_banco.sair() # Maria sai
+
+print(f"\nPróximo a ser atendido: {fila_banco.primeiro()}")
+print(f"Tamanho final: {fila_banco.tamanho()}")
