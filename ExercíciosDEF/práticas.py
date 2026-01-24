@@ -212,3 +212,20 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     main()
 
+# Sistema simples de Gerenciamento de Estoque (Estudo ADS)
+estoque = ["Filtro de Oleo", "Chave de Fenda", "Mouse", "Teclado"]
+
+def listar_itens():
+    print("\n--- Itens no Inventario ---")
+    for i, item in enumerate(estoque, 1):
+        print(f"{i}. {item}")
+
+def adicionar_item():
+    novo_item = input("Digite o nome do novo item: ")
+    estoque.append(novo_item)
+    print(f"{novo_item} adicionado com sucesso!")
+
+# Execução simples
+listar_itens()
+adicionar_item()
+listar_itens()
